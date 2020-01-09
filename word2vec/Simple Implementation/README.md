@@ -15,7 +15,7 @@ corpus = ['king is a strong man',
 위와 같은 데이터를 가지고 임베딩을 구현해보자.
 
 
-![Image](../img/SkipGramSimpleResult.png)
+![Image](../../img/SkipGramSimpleResult.png)
 
 
 ## nn.Linear vs nn.Embedding 
