@@ -34,7 +34,7 @@ CBOW는 중심단어(벡터)의 업데이트 기회는 단 한번이다.
 하지만 Skip-gram은 1개의 중심단어에 대해서 N개의 주변단어를 각각 학습 시키므로 총 N번의 업데이트를 수행한다.
 예를들어 윈도우 크기가 2인 Skip-gram은 중심단어가 4번(주변 단어수) 업데이트됨
 ```
-![Image](img/"SkipGram example.png")
+![Image](img/SkipGramExample.png)
 
 위와 같이 skip-gram은 중심단어가 여러번의 update 기회를 갖는다.
 
