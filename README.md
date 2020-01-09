@@ -46,5 +46,27 @@ word2vec은 일종의 NN으로 AutoEncoder와 비슷한 구조를 가진다.
 하지만, input과 label 이 동일한 autoencoder와 다르게 
 skip-gram은 input이 중심단어, label 이 주변단어가 된다.
 ```
+## 흔한 오해
+
+실제로 NLP를 위한 NN을 구성할때 word2vec을 사용하지는 않는다. 
+(word2vec을 사용한다는 것은 pre-trained된 임베딩을 사용하겠다는 소리. 즉, 데이터가 적다면 고려해 볼 수 있다.)
+
+그 이유는 실제로 해결하려는 task에 필요한 임베딩이 word2vec의 같이 등장하는 단어가 유사도가 높다고 계산한 임베딩과는 다를 것이기 때문이다.
+
+그렇다면 실제 NN에서 임베딩을 어떻게 구하는가?
+> input layer에 embedding layer를 사용하자. 
+
+(embedding layer) y = emb(x) = Wx
+
+W = d * |V| 크기의 2차원 행렬
+
+input으로 one-hot vector(단어)가 들어오면 W의 특정 행 만 반환
+> 해당 행이 해당 단어의 임베딩 벡터 
+
+그 뒤로는 NN을 구성하고, 최종적으로 모델으로부터 구한 Loss에 따라 역전파 및 경사하강법을 수행하여 embedding layer의 W(가중치)를 변경할 수 있다.
+> 풀려고하는 task에 알맞은 임베딩이 생성될 것.
+
+pytorch에서의 구현은 nn.Embedding layer를 입력단에 넣어 구현할 수 있다.
+
 
 
